@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<main class="principal">
+	<div class="container">
+		{% for post in posts %}
+		<div class="post">
+			<a href="{% url 'principal.views.post_detail' pk=post.pk %}"><img data-src="holder.js/317x214?theme=industrial" alt="" class="picture"/>
+			<h2 class="title-pos">{{ post.title|capfirst }}</h2></a>
+			<div class="post-date">
+				<p class="author">{{post.author|capfirst}} </p>
+				<p class="date"> {{ post.published_date|date:'d F Y' }} </p>
+			</div>
+			<div class="description"> {{ post.text|truncatewords:"40" }} </div>
+		</div>
+		{% endfor %}
+	</div>
+</main>
+<div class="pagination">
+	<span class="step-links">
+		{% if posts.has_previous %}
+			<a href="?page={{ posts.previous_page_number }}"> Anterior </a>
+		{% endif %}
+	<span class="current">
+		Página {{ posts.number }} de {{ posts.paginator.num_pages }}.
+	</span>
+	{% if posts.has_next %}
+		<a href="?page={{ posts.next_page_number }}"> Siguiente </a>
+	{% endif %}
+	</span>
+</div>
+{% endblock content %}

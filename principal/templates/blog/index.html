@@ -1,0 +1,99 @@
+{% extends 'blog/base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<div class="contenedor">
+	<article>
+		<div class="about">
+			<h2> Sobre mi </h2>
+			<p>Hola Mundo mi nombre es Gilberto Gómez, soy Ingeniero en Sistemas.
+			Apasionado por el desarrollo web,especialmente en la parte Front-End.
+			Compartire con ustedes todo lo que voy aprendiendo en este blog y espero que les pueda ayudar.
+			Si te interesa lo que hago, mandame un Tweet o escribirme.  Saludos!
+			</p>
+		</div>
+		<div class="technologies">
+			<object>
+				<embed src="{% static 'imagenes/javascript.svg' %}" class="redondo"/>
+			</object>
+			<object>
+				<embed src="{% static 'imagenes/html5.svg' %}"/>
+			</object>
+			<object>
+				<embed src="{% static 'imagenes/css3.svg' %}"/>
+			</object>
+			<object>
+				<embed src="{% static 'imagenes/bootstrap.svg' %}" class="redondo"/>
+			</object>
+			<object>
+				<embed src="{% static 'imagenes/angular.svg' %}"/>
+			</object>
+			<object>
+				<embed src="{% static 'imagenes/jquery.svg' %}"/>
+			</object>
+		</div>
+		<section>
+			<div class="center">
+				<h3>Experiencia</h3>
+			</div>
+			<div class="center">
+				<div class="circulo">
+					<div class="inicio">
+						<p>SEP Servicio S.</p>
+					</div>
+					<div id="3" class="ocultar">
+						<p>6 meses</p>
+					</div>
+				</div>
+				<div class="circulo">
+					<div class="inicio">
+						<p>SATI Practicas</p>
+					</div>
+					<div id="4" class="ocultar">
+						<p>6 meses</p>
+					</div>
+				</div>
+				<div class="circulo">
+					<div class="inicio">
+						<p>Idea Interior</p>
+					</div>
+					<div id="5" class="ocultar">
+						<p>2 años</p>
+					</div>
+				</div>
+			</div>
+			<div class="center">
+				<h3 class="">Educación</h3>
+			</div>
+			<div class="center">
+				<div class="circulo">
+					<div class="inicio">
+						<p>Hola Mundo</p>
+					</div>
+					<div class="ocultar">
+						<p>1988</p>
+					</div>
+				</div>
+				<div class="circulo">
+					<div class="inicio">
+						<p>IEU Universidad</p>
+					</div>
+					<div id="2" class="ocultar">
+						<p>3 años</p>
+					</div>
+				</div>
+				<div class="circulo">
+					<div class="inicio">
+						<p>Platzi Cursos</p>
+					</div>
+					<div id="5" class="ocultar">
+						<p>2015</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</article>
+</div>
+<footer>
+	<span class="facebook-icon"></span><span class="twitter-icon"></span><span class="mail-icon"></span>
+</footer>
+{% endblock content %}

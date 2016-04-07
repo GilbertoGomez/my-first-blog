@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<main>
+	<div class="container">
+		<div class="PostWrapper"><img data-src="holder.js/1000x400?theme=industrial" alt="" class="picture"/>
+			<div class="Date">{{ post.published_date|date:'d F Y' }} </div>
+			<h3 class="PostTitle">{{ post.title|capfirst }}</h3>
+			<div class="DescriptionPost"> {{ post.text}} </div>
+			<hr>
+		</div>
+	</div>
+</main>
+{% endblock content %}

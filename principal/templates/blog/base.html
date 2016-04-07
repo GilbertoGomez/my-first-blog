@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	<title>Demo</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+</head>
+<header class="envoltura">
+	<div class="bt-menu"><a href="#"><span class="menu-icon"></span></a></div>
+	<nav class="menu collapse">
+		<ul>
+			<li><a href="{% url 'principal.views.index' %}">Inicio</a></li>
+			<li><a href="{% url 'principal.views.post_list' %}">Blog</a></li>
+			<li><a id="contac" href="">Contacto</a></li>
+		</ul>
+		<form method="GET" action="/blog/" id="search" class="form">
+			<input type="text" id="busqueda" autocomplete="off" name="b" value="{{ request.GET.b }}" placeholder="Buscar..." class="search"/>
+			<button type="submit" class="button">Buscar</button>
+		</form>
+	</nav>
+</header>
+<div class="main">
+	<figure>
+		<img class="img" src="{% static 'imagenes/prin1.jpg' %}" alt="img">
+	</figure>
+	<div class="img-data">
+		<h2>Gilberto Gomez | Desarrollador Web</h2>
+		<h2>Artículos sobre tecnologías web</h2>
+	</div>
+</div>
+<body>
+<div id="popup">
+	<div class="content-popup">
+		<div class="close"><a href="#" id="close">X</a></div>
+		<div class="title">Contacto</div>
+		<div class="contactos">
+			<span class="facebook-icon"></span>
+			<span class="twitter-icon"></span>
+			<span class="mail-icon"></span>
+		</div>
+	</div>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+<script src="{% static 'js/index.js' %}"></script>
+</html>
