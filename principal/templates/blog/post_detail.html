@@ -1,8 +1,11 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<main>
+<main class="flex">
+	<figure class="post-imagen">
+		<img src="{{ post.imagen.url }}" alt="/" class="imagen" width="1200px" />
+	</figure>
 	<div class="container">
-		<div class="PostWrapper"><img data-src="holder.js/1000x400?theme=industrial" alt="" class="picture"/>
+		<div class="PostWrapper">
 			<div class="Date">{{ post.published_date|date:'d F Y' }} </div>
 			<h3 class="PostTitle">{{ post.title|capfirst }}</h3>
 			<div class="DescriptionPost"> {{ post.text}} </div>
@@ -10,4 +13,7 @@
 		</div>
 	</div>
 </main>
+<div class="comments">
+	<div class="fb-comments" data-href="http://gilbertogomez.pythonanywhere.com/" data-width="800" data-numposts="5"></div>
+</div>
 {% endblock content %}

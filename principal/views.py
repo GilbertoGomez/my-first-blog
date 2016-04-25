@@ -2,14 +2,11 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
-from django.contrib.auth import authenticate, login
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
 from django.db.models import Q
-import json
 # Create your views here.
 
 def busqueda(request):
@@ -46,10 +43,10 @@ def post_detail(request,pk):
 	post = get_object_or_404(Post,pk=pk)
 	return render(request, 'blog/post_detail.html', {'post':post})
 
-@login_required(login_url="/accounts/login/")
+@login_required(login_url="/login/")
 def post_new(request):
 	if request.method == "POST":
-		form = PostForm(request.POST)
+		form = PostForm(request.POST or None, request.FILES or None )
 		if form.is_valid():		
 			post = form.save(commit=False)
 			post.author = request.user
@@ -58,7 +55,7 @@ def post_new(request):
 			return HttpResponseRedirect("/")
 	else:
 		form = PostForm()
-	return render(request, 'blog/post_edit.html', {'form': form})
+	return render(request, 'blog/post_edit.html',{'form':form})
 
 def login(request):
 	next = request.GET.get('next','/')

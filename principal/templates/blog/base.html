@@ -22,15 +22,6 @@
 		</form>
 	</nav>
 </header>
-<div class="main">
-	<figure>
-		<img class="img" src="{% static 'imagenes/prin1.jpg' %}" alt="img">
-	</figure>
-	<div class="img-data">
-		<h2>Gilberto Gomez | Desarrollador Web</h2>
-		<h2>Artículos sobre tecnologías web</h2>
-	</div>
-</div>
 <body>
 <div id="popup">
 	<div class="content-popup">
@@ -45,6 +36,14 @@
 </div>
 {% block content %}
 {% endblock %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 <script src="{% static 'js/index.js' %}"></script>
 </html>

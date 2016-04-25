@@ -1,21 +1,23 @@
 {% extends "blog/base.html" %}
 {% block content %}
-{% if form.errors %}
-<p class="error">Tu Nombre de Usuario o Contraseña son Incorrectos.</p>
-{% endif %}
-<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
-{% csrf_token %}
-	<div class="login">
-		<div class="user">
-			<p>{{ form.username.label_tag }}</p>
-			<p>{{ form.username }}</p>
-		</div>
-		<div class="password">
-			<p>{{ form.password.label_tag }}</p>	
-			<p>{{ form.password }}</p>
-		</div>
-		</div>
-	<input type="submit" value="Entrar" />
-	<input type="hidden" name="next" value="{{ next }}" />
-</form>
+<div class="container">
+	{% if form.errors %}
+	<p class="error">Tu Nombre de Usuario o Contraseña son Incorrectos.</p>
+	{% endif %}
+	<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+	{% csrf_token %}
+		<div class="login">
+			<div class="user">
+				<p>{{ form.username.label_tag }}</p>
+				<p>{{ form.username }}</p>
+			</div>
+			<div class="password">
+				<p>{{ form.password.label_tag }}</p>	
+				<p>{{ form.password }}</p>
+			</div>
+			</div>
+		<input type="submit" value="Entrar" />
+		<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+</div>
 {% endblock %}
